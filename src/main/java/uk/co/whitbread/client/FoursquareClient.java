@@ -20,13 +20,13 @@ import static java.util.stream.Collectors.toList;
 @Component
 public class FoursquareClient {
 
-    Logger LOG = Logger.getLogger(FoursquareClient.class.getName());
+    private Logger LOG = Logger.getLogger(FoursquareClient.class.getName());
 
     private RestTemplate restTemplate;
     private UrlBuilder urlBuilder;
 
     @Autowired
-    public FoursquareClient(UrlBuilder urlBuilder, RestTemplate restTemplate) {
+    FoursquareClient(UrlBuilder urlBuilder, RestTemplate restTemplate) {
         this.urlBuilder = urlBuilder;
         this.restTemplate = restTemplate;
     }

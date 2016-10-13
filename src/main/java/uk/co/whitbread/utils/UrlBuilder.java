@@ -10,7 +10,7 @@ public class UrlBuilder {
     private FoursquareProperties properties;
 
     @Autowired
-    public UrlBuilder(FoursquareProperties properties) {
+    UrlBuilder(FoursquareProperties properties) {
         this.properties = properties;
     }
 
