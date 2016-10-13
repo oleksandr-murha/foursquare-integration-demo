@@ -9,13 +9,13 @@
 	<packaging>jar</packaging>
 
 	<name>foursquare-integration-demo</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Foursquare Integration Demo project</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>

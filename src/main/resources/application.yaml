@@ -1,0 +1,6 @@
+foursquare:
+  baseUrl: https://api.foursquare.com/v2/venues/explore?client_id=%s&client_secret=%s&near=%s&v=%s&m=%s
+  clientId: 01SQBD4NF1YIWMEBJHB2VQG1HFKICH5XKT5WXQIMUQ012X3P
+  clientSecret: PELK3BQ3DVRC4A24SPZSP5DUHPGIC5SEUORUAABNDFOI54GV
+  version: 20161013
+  mode: foursquare
