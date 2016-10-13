@@ -6,14 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
-import uk.co.whitbread.model.ResultLocation;
+import uk.co.whitbread.model.RecommendedLocation;
 import uk.co.whitbread.model.foursquare.Category;
 import uk.co.whitbread.model.foursquare.Item;
 import uk.co.whitbread.model.foursquare.Venue;
 import uk.co.whitbread.model.foursquare.VenuesExploreResponse;
 import uk.co.whitbread.utils.UrlBuilder;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -29,13 +28,13 @@ public class VenuesExploreController {
     @RequestMapping("/explore.html")
     public String exploreVenue(@RequestParam String location, Model model) throws Exception {
         VenuesExploreResponse venuesExploreResponse = restTemplate.getForObject(urlBuilder.buildUrl(location), VenuesExploreResponse.class);
-        List<ResultLocation> collect = venuesExploreResponse.getResponse().getGroups().stream().flatMap(group -> group.getItems().stream()).map(Item::getVenue).map(this::convert).collect(toList());
-        model.addAttribute("name", location);
-        model.addAttribute("resultLocations", collect);
+        List<RecommendedLocation> recommendedLocations = venuesExploreResponse.getResponse().getGroups().stream().flatMap(group -> group.getItems().stream()).map(Item::getVenue).map(this::convert).collect(toList());
+        model.addAttribute("name", venuesExploreResponse.getResponse().getHeaderFullLocation());
+        model.addAttribute("recommendedLocations", recommendedLocations);
         return "explore";
     }
 
-    private ResultLocation convert(Venue venue){
-        return new ResultLocation(venue.getName(), venue.getCategories().stream().findFirst().orElse(new Category()).getName());
+    private RecommendedLocation convert(Venue venue){
+        return new RecommendedLocation(venue.getName(), venue.getCategories().stream().findFirst().orElse(new Category()).getName());
     }
 }

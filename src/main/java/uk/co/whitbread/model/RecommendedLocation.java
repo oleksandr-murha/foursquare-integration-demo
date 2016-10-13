@@ -1,10 +1,10 @@
 package uk.co.whitbread.model;
 
-public class ResultLocation {
+public class RecommendedLocation {
     private String name;
     private String category;
 
-    public ResultLocation(String name, String category) {
+    public RecommendedLocation(String name, String category) {
         this.name = name;
         this.category = category;
     }

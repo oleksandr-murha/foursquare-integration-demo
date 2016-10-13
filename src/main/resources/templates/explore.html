@@ -15,10 +15,10 @@
 
 <div align="center">
     <form id="search-form" method="GET" action="explore.html">
-        <input id="searchText" type="text" name="location" />
-        <input id="searchBtn"  type="submit" value="Search"/>
+        <input id="searchText" type="text" name="location" placeholder="Area you want to explore"/>
+        <input id="searchBtn"  type="submit" value="Search" />
     </form>
-    <p th:text="'Popular locations around ' + ${name} + '!'"/>
+    <p th:text="'Recommended locations around ' + ${name} + '!'"/>
 </div>
 
 <table class="table-fill">
@@ -28,9 +28,9 @@
         <th class="text-left">Category</th>
     </tr>
     </thead>
-    <tr th:each="resultLocation : ${resultLocations}">
-        <td th:text="${resultLocation.name}">Location Name</td>
-        <td th:text="${resultLocation.category}">Category</td>
+    <tr th:each="recommendedLocation : ${recommendedLocations}">
+        <td th:text="${recommendedLocation.name}">Location Name</td>
+        <td th:text="${recommendedLocation.category}">Category</td>
     </tr>
 </table>
 </body>
