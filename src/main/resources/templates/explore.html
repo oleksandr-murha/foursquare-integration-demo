@@ -3,6 +3,7 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <link href="css/search-form.css" type="text/css" rel="stylesheet" media="screen"/>
+    <link href="css/data-table.css" type="text/css" rel="stylesheet" media="screen"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style type="text/css">
         body {
@@ -11,13 +12,22 @@
     </style>
 </head>
 <body>
-<form id="search-form" method="GET" action="explore.html">
-    <input id="searchText" type="text" name="location" />
-    <input id="searchBtn"  type="submit" value="Search"/>
-</form>
 
-<p th:text="'Hello, ' + ${name} + '!'"/>
-<table>
+<div align="center">
+    <form id="search-form" method="GET" action="explore.html">
+        <input id="searchText" type="text" name="location" />
+        <input id="searchBtn"  type="submit" value="Search"/>
+    </form>
+    <p th:text="'Popular locations around ' + ${name} + '!'"/>
+</div>
+
+<table class="table-fill">
+    <thead>
+    <tr>
+        <th class="text-left">Location</th>
+        <th class="text-left">Category</th>
+    </tr>
+    </thead>
     <tr th:each="resultLocation : ${resultLocations}">
         <td th:text="${resultLocation.name}">Location Name</td>
         <td th:text="${resultLocation.category}">Category</td>
