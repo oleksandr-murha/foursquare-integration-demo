@@ -1,4 +1,4 @@
-package uk.co.whitbread.model;
+package uk.co.whitbread.model.foursquare;
 
 public class Item {
 

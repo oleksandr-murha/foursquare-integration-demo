@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <link href="css/search-form.css" type="text/css" rel="stylesheet" media="screen"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        body {
+            background: #999;
+        }
+    </style>
+</head>
+<body>
+<form id="search-form" method="GET" action="explore.html">
+    <input id="searchText" type="text" name="location" />
+    <input id="searchBtn"  type="submit" value="Search"/>
+</form>
+
+<p th:text="'Hello, ' + ${name} + '!'"/>
+<table>
+    <tr th:each="resultLocation : ${resultLocations}">
+        <td th:text="${resultLocation.name}">Location Name</td>
+        <td th:text="${resultLocation.category}">Category</td>
+    </tr>
+</table>
+</body>
+</html>
