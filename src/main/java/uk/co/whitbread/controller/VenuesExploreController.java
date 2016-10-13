@@ -16,7 +16,7 @@ public class VenuesExploreController {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    @RequestMapping("/explore")
+    @RequestMapping("/exploreVenue")
     public VenuesExploreResponse exploreVenue(@RequestParam String location) throws Exception {
         return restTemplate.getForObject(urlBuilder.buildUrl(location), VenuesExploreResponse.class);
     }
