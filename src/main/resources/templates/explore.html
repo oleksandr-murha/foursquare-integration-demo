@@ -9,6 +9,7 @@
         body {
             background: #999;
         }
+
     </style>
 </head>
 <body>
@@ -16,22 +17,23 @@
 <div align="center">
     <form id="search-form" method="GET" action="explore.html">
         <input id="searchText" type="text" name="location" placeholder="Area you want to explore"/>
-        <input id="searchBtn"  type="submit" value="Search" />
+        <input id="searchBtn" type="submit" value="Search"/>
     </form>
-    <p th:text="'Recommended locations around ' + ${name} + '!'"/>
-</div>
+    <p th:text="${caption}"/>
 
-<table class="table-fill">
-    <thead>
-    <tr>
-        <th class="text-left">Location</th>
-        <th class="text-left">Category</th>
-    </tr>
-    </thead>
-    <tr th:each="recommendedLocation : ${recommendedLocations}">
-        <td th:text="${recommendedLocation.name}">Location Name</td>
-        <td th:text="${recommendedLocation.category}">Category</td>
-    </tr>
-</table>
+
+    <table class="hidden">
+        <thead>
+        <tr>
+            <th class="text-left">Location</th>
+            <th class="text-left">Category</th>
+        </tr>
+        </thead>
+        <tr th:each="recommendedLocation : ${recommendedLocations}">
+            <td th:text="${recommendedLocation.name}">Location Name</td>
+            <td th:text="${recommendedLocation.category}">Category</td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
